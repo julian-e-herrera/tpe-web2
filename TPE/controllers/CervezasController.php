@@ -51,7 +51,7 @@ class CervezasController{
 
     public function InsertarCervezas(){
         $this->checkLogIn();
-        $this->model->InsertarCervezas($_POST['nombre'],$_POST['graduacion_alcoholica'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity']);
+        $this->model->InsertarCervezas($_POST['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity']);
         header("Location: " . BASE_URL);
     }
 
