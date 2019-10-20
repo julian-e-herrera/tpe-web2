@@ -45,25 +45,19 @@ class CervezasController{
     }
     public function GetCervezas(){
         $this->checkLogIn();
-        $cervezas = $this->model->GetCervezas();
+        $cervezas = $this->model->getAll();
         $this->view->DisplaytCervezas($cervezas);
     }
 
     public function InsertarCervezas(){
         $this->checkLogIn();
-        $this->model->InsertarCervezas($_POST['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity']);
+        $this->model->InsertarCervezas($_POST['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity'],$_POST['id_familia']);
         header("Location: " . BASE_URL);
     }
 
-    public function FinalizarTarea($id){
+    public function BorrarCerveza($id){
         $this->checkLogIn();
-        $this->model->FinalizarTarea($id);
-        header("Location: " . BASE_URL);
-    }
-
-    public function BorrarTarea($id){
-        $this->checkLogIn();
-        $this->model->BorrarTarea($id);
+        $this->model->BorrarCerveza($id);
         header("Location: " . BASE_URL);
     }
 }

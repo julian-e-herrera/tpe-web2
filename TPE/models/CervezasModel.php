@@ -29,5 +29,22 @@ class CervezaModel{
         
         return $cerveza;
     }
+//////////////////////////////////////////////////////////
+
+public function InsertarCerveza($nombre,$grad,$ibu,$amargor,$og,$id_fam){
+
+    $sentencia = $this->db->prepare("INSERT INTO tarea(nombre,graduacion_porcentaje,ibu,amargor,original_gravity,id_familia) VALUES(?,?,?,?,?,?)");
+    $sentencia->execute(array($nombre,$grad,$ibu,$amargor,$og,$id_fam));
+}
+
+public function ActualizarCerveza($nombre,$grad,$ibu,$amargor,$og,$id_fam){
+    $sentencia =  $this->db->prepare("UPDATE cerveza SET nombre=?, graduacion_porcentaje=?, ibu=?,amargor=?,original_gravity=?,id_familia=? WHERE id=?");
+    $sentencia->execute(array($nombre,$grad,$ibu,$amargor,$og,$id_fam));
+}
+
+public function BorrarCerveza($id){
+    $sentencia = $this->db->prepare("DELETE FROM cerveza WHERE id=?");
+    $sentencia->execute(array($id));
+}
 
 }
