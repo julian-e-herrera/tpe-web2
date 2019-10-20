@@ -1,4 +1,5 @@
 <?php
+
 require_once("Router.php");
 require_once("./api/CervezasApiController.php");
 
@@ -16,6 +17,9 @@ $router = new Router();
 // arma la tabla de ruteo
 $router->addRoute("cervezas", "GET", "CervezasApiController", "getCervezas");
 $router->addRoute("cervezas/:ID", "GET", "CervezasApiController", "getCerveza");
+$router->addRoute("cervezas/:ID", "DELETE", "CervezasApiController", "deleteCerveza");
+$router->addRoute("cervezas", "POST", "CervezasApiController", "addCerveza");
+$router->addRoute("cervezas/:ID", "PUT", "CervezasApiController", "updateCervezas");
 
 // rutea
 $router->route($resource, $method);

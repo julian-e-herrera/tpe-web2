@@ -14,7 +14,7 @@ class CervezaView{
         $smarty = new Smarty();
        // $smarty->assign('titulo',"Mostrar Cervezas");
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('lista_tareas',$cerveza);
+        $smarty->assign('lista_cervezas',$cerveza);
         $smarty->display('templates/ver_cervezas.tpl');
     }
 }
