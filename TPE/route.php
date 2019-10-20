@@ -1,14 +1,14 @@
 <?php
 
-require_once('controllers/CervezasController.php');
-require_once ("controllers/UserController.php");
+require_once("controllers/CervezasController.php");
+require_once("controllers/UserController.php");
 
 $cervezasController = new CervezasController();
 $cervezasController->showCervezas();
 //////////////////
 
 $action = $_GET["action"];
-define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+//define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');COMENTADO PORQ TIRA ERROR
 define("URL_CERVEZAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/cervezas');
 define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
