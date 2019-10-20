@@ -6,7 +6,7 @@ require_once("./api/CervezasApiController.php");
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 
 // recurso solicitado
-$resource = $_GET["resource"];
+//$resource = $_GET["resource"];esto lo comente para q no marque error
 
 // método utilizado
 $method = $_SERVER["REQUEST_METHOD"];
@@ -22,5 +22,5 @@ $router->addRoute("cervezas", "POST", "CervezasApiController", "addCerveza");
 $router->addRoute("cervezas/:ID", "PUT", "CervezasApiController", "updateCervezas");
 
 // rutea
-$router->route($resource, $method);
+//$router->route($resource, $method);esto lo comente para q no marque error
 
