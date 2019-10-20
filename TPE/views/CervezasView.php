@@ -1,19 +1,20 @@
 <?php
+require_once('libs/Smarty.class.php');
+require_once("./route-api.php");
 
 class CervezaView{
 
-    function displayAll($cervezas){
+        
+    function __construct(){
 
-        $html = "<ul>";
-        foreach($cervezas as $cerveza){
-            $html .= "<li>{$cerveza->nombre} </li>";
-        }
-        $html .= "</ul>";
-    
-        echo $html;
     }
 
-    function displayCerveza($cerveza){
-        var_dump($cerveza);
+    public function DisplayCervezas($cerveza){
+
+        $smarty = new Smarty();
+       // $smarty->assign('titulo',"Mostrar Cervezas");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('lista_tareas',$cerveza);
+        $smarty->display('templates/ver_cervezas.tpl');
     }
 }

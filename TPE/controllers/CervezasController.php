@@ -2,7 +2,7 @@
 
 require_once('./models/CervezasModel.php');
 require_once('./views/CervezasView.php');
-
+require_once('libs/Smarty.class.php');
 class CervezasController{
 
     private $cervezasModel;
@@ -17,7 +17,7 @@ class CervezasController{
         if(isset($_GET)&& isset($_GET['id'])){
             $id = $_GET['id'];
             $cerveza = $this->cervezasModel->get($id);
-            $this->cervezasView->displayCerveza($cerveza);
+            $this->cervezasView->DisplayCervezas($cerveza);
         }
         else{
             $this->showCerveza();
@@ -26,6 +26,6 @@ class CervezasController{
 
     function showCervezas(){
         $cervezas = $this->cervezasModel->getAll();
-        $this->cervezasView->displayAll($cervezas);
+        $this->cervezasView->DisplayCervezas($cervezas);
     }
 }
