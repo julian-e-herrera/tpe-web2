@@ -8,14 +8,14 @@ class UserModel {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_usuarios;charset=utf8', 'root', '');
     }
 
-    // public function GetPassword($user){
-    //     $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE email = ?");
-    //     $sentencia->execute(array($user));
+     public function GetPassword($user){
+         $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE .'password'. = ?");
+         $sentencia->execute(array($user));
         
-    //     $password = $sentencia->fetch(PDO::FETCH_OBJ);
+         $password = $sentencia->fetch(PDO::FETCH_OBJ);
         
-    //     return $password;
-    // }
+         return $password;
+     }
     public function getByUsername($username) {
         $query = $this->db->prepare('SELECT * FROM usuario WHERE nombre = ?');
         $query->execute(array($username));

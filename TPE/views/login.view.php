@@ -7,7 +7,7 @@ class LoginView {
 
     public function __construct() {
         $this->smarty = new Smarty();
-        $this->smarty->assign('BASE_URL', BASE);
+        $this->smarty->assign('BASE_URL', BASE_URL);
     }
 
     public function showLogin($error = null) {

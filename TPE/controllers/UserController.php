@@ -21,7 +21,7 @@ class UserController {
             session_start();
             $_SESSION['user'] = $usuario->email;
             $_SESSION['userId'] = $usuario->id;
-            header("Location: " . URL_TAREAS);
+            header("Location: " . BASE_URL);
         }else{
             header("Location: " . URL_LOGIN);
         }

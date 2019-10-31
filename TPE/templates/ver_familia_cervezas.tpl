@@ -33,5 +33,6 @@
              {include 'templates/filtro_familia.tpl'}
  <section>
   <h1>HISTORIA</h1>
+  {include 'historia.tpl'}
  </section>       
 {include file="footer.tpl"}
