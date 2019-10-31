@@ -2,44 +2,34 @@
 
 require_once("controllers/CervezasController.php");
 require_once("controllers/UserController.php");
+require_once("controllers/loginController.php");
+require_once('Router.php');
 
-$cervezasController = new CervezasController();
-$cervezasController->showCervezas();
-//////////////////
+//////////////////CONSTANTES
 
-$action = $_GET["action"];
-//define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');COMENTADO PORQ TIRA ERROR
-define("URL_CERVEZAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/cervezas');
-define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
-define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');//COMENTADO PORQ TIRA ERROR
+define("LOGIN", BASE_URL . 'login');
+define("VER", BASE_URL . 'ver');
 
+$r = new Router();
 
-if($action == ''){
-    $controller->GetCervezas();
-}else{
-    if (isset($action)){
-        $partesURL = explode("/", $action);
+// rutas
+$r->addRoute("login", "GET", "UserController", "Login");
+$r->addRoute("verify", "POST", "LoginController", "verifyUser");
+$r->addRoute("logout", "GET", "LoginController", "logout");
+$r->addRoute("ver", "GET", "CervezasController", "showCervezas");/////
+$r->addRoute("cervezas/:ID", "GET", "CervezasController", "showCerveza");//////
+$r->addRoute("familia/:ID", "GET", "CervezasController", "showFamiliaCerveza");//////
+$r->addRoute("insertar", "POST", "CervezasController", "InsertarCerveza");
+$r->addRoute("borrar/:ID", "GET", "CervezasController", "BorrarCerveza");
 
-        if($partesURL[0] == "cervezas"){
-            $controller->GetCervezas();
-        }elseif($partesURL[0] == "insertar") {
-            $controller->InsertarCerveza();
-        }elseif($partesURL[0] == "borrar") {
-            $controller->BorrarCerveza($partesURL[1]);
-        }elseif($partesURL[0] == "login") {
-            $controllerUser = new UserController();
-            $controllerUser->Login();
-        }elseif($partesURL[0] == "iniciarSesion") {
-            $controllerUser = new UserController();
-            $controllerUser->IniciarSesion();
-        }elseif($partesURL[0] == "logout") {
-            $controllerUser = new UserController();
-            $controllerUser->Logout();
-        }
-    }
-}
+//Ruta por defecto.
+$r->setDefaultRoute("CervezasController", "showCervezas");
+//$r->setDefaultRoute("loginController", "showLogin");
+
+//run
+$r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
+    
 ?>
-
-
 
 

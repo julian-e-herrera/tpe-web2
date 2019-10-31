@@ -2,33 +2,43 @@
 
 require_once('./models/CervezasModel.php');
 require_once('./views/CervezasView.php');
-//require_once('libs/Smarty.class.php');
+include_once('helpers/auth.helper.php');
+
 class CervezasController{
 
     private $cervezasModel;
     private $cervezasView;
 
     function __construct(){
+        // $authHelper = new AuthHelper();
+        // $authHelper->checkLoggedIn();
+//////barrera de logueo
         $this->cervezasModel = new CervezaModel();
         $this->cervezasView = new CervezaView();
     }
 
-    function showCerveza(){
-        if(isset($_GET)&& isset($_GET['id'])){
-            $id = $_GET['id'];
-            $cerveza = $this->cervezasModel->get($id);
-            $this->cervezasView->DisplayCervezas($cerveza);
+    public function showCerveza($params = null) {
+        $idCerveza = $params[':ID'];
+        $cerveza = $this->cervezasModel->get($idCerveza);
+
+        if ($cerveza){ // si existe la tarea
+            $this->cervezasView->DisplayCerveza($cerveza);
         }
         else{
-            $this->showCerveza();
+            $this->cervezasView->showError('La cerveza no existe');
         }
     }
-
     function showCervezas(){
         $cervezas = $this->cervezasModel->getAll();
         $this->cervezasView->DisplayCervezas($cervezas);
+       
     }
-    /////////////
+    public function showFamiliaCerveza($params = null) {
+        $idCerveza = $params[':ID'];
+        $cerveza = $this->cervezasModel->getFamAll($idCerveza);
+        $this->cervezasView->DisplayFamiliaCerveza($cerveza);
+    }
+
     public function checkLogIn(){
         session_start();
         
@@ -43,21 +53,16 @@ class CervezasController{
         } 
         $_SESSION['LAST_ACTIVITY'] = time();
     }
-    public function GetCervezas(){
-        $this->checkLogIn();
-        $cervezas = $this->model->getAll();
-        $this->view->DisplaytCervezas($cervezas);
-    }
 
     public function InsertarCervezas(){
         $this->checkLogIn();
-        $this->model->InsertarCervezas($_POST['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity'],$_POST['id_familia']);
-        header("Location: " . BASE_URL);
+        $this->cervezasModel->InsertarCervezas($_POST['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity'],$_POST['id_familia']);
+        header("Location: " . ver);
     }
 
     public function BorrarCerveza($id){
         $this->checkLogIn();
-        $this->model->BorrarCerveza($id);
-        header("Location: " . BASE_URL);
+        $this->cervezasModel->BorrarCerveza($id);
+        header("Location: " . ver);
     }
 }

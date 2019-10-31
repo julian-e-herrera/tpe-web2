@@ -13,7 +13,7 @@ class UserView {
 
         $smarty = new Smarty();
         $smarty->assign('titulo',"Login");
-        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('BASE_URL',BASE);
         $smarty->display('templates/login.tpl');
     }
 }

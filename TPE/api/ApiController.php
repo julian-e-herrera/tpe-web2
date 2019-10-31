@@ -8,7 +8,7 @@ abstract class ApiController {
     public function __construct() {
         $this->view = new JSONView();
         $this->data = file_get_contents("php://input"); 
-        $this->model = new CervezasModel();
+        $this->model = new CervezaModel();
     }
 
     function getData(){ 
