@@ -1,0 +1,322 @@
+html {
+    margin: 10px;
+}
+
+body, .centro {
+    margin: 0;
+}
+
+h1, h2 {
+    color: gold;
+    text-shadow: 10px 10px 10px black;
+    margin: 20px 0;
+}
+
+.cerveza {
+    background-image: url("fotos/treboles.jpg");
+    background-size: cover;
+}
+
+#historia {
+    background: rgb(83, 56, 5);
+}
+
+#home {
+    background: url("fotos/treboles.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#captcha {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(243, 38, 38);
+}
+
+.subtitulo {
+    font: bold 200% 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.titulo {
+    font: bold 300% 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.cuerpo {
+    width: 100%;
+    display: block;
+}
+
+table {
+    text-shadow: 10px 10px 10px black;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+th {
+    background-color: rgb(245, 222, 92);
+    color: black;
+    border: 4px transparent white;
+    padding: 10px 0;
+}
+
+table, td, tr {
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.contacto {
+    clear: both;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+    margin: none;
+}
+
+.resaltado {
+    background-color: red;
+}
+
+tr:nth-child(even) {
+    background-color: #4CAF50;
+}
+
+tr:hover td {
+    background-color: #333;
+    color: white;
+}
+
+a,li {
+    text-decoration: none;
+    color: white;
+}
+
+p, label {
+    color: white;
+    text-shadow: 0 2px 0 black;
+    font-size: 1, 5em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+}
+
+#navegador {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#navegador ul {
+    padding-inline-start: 0;
+    margin: 0;
+    height: 100%;
+    background-color: rgb(88, 85, 85);
+}
+
+#navegador ul li {
+    text-align: center;
+    float: left;
+    display: block;
+    position: relative;
+    list-style: none;
+    background-color: #333;
+    height: 100%;
+    margin: 0 1px;
+}
+
+#SubirComentario {
+    font: bolder;
+    color: rgb(19, 63, 20);
+    margin-left: 25%;
+    background-color: #eeeeee;
+    text-shadow: 0 5px 0 0 black;
+}
+
+#SubirComentario:hover {
+    background-color: transparent;
+    color: gold;
+}
+
+ul.btnsnav li a {
+    font: bold 250% 'Times New Roman', Times, serif;
+    display: block;
+    color: #4CAF50;
+    background-color: transparent;
+    border: 1px transparent;
+    text-decoration: none;
+    width: 100%;
+}
+
+#navegador ul li:hover {
+    background-color: transparent;
+    color: gold;
+}
+
+.seleccionado:visited {
+    background-color: transparent;
+    color: gold;
+}
+
+.formulario {
+    color: #eeeeee;
+    font: bold 150% lighter;
+    font-size: 1.5em;
+    text-shadow: 0 5px 0 black;
+    list-style-type: none;
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+.formulario li {
+    margin-top: 20px;
+}
+
+.arriba {
+    position: sticky;
+    bottom: 1rem;
+    align-self: flex-end;
+    float: right;
+    margin-right: 2%;
+    border: 0, 1px;
+}
+
+.arriba button {
+    color: #eeeeee;
+    background-color: rgb(45, 122, 47);
+    font-size: 200%;
+    text-shadow: 0 5px 0 black;
+}
+
+img {
+    border: 2px solid rgb(255, 230, 90);
+}
+
+.cuerpo img {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+#comentario {
+    width: 200px;
+}
+
+@media only screen and (min-width:480px) {
+    .cuerpo img {
+        width: 500px;
+    }
+    ul.formulario {
+        width: 480px;
+    }
+    #comentario {
+        width: 600px;
+    }
+    #campo label {
+        display: inline-flex;
+        justify-content: right;
+        align-content: flex-start;
+    }
+    #navegador ul.sub-menu {
+        display: inline-block;
+    }
+}
+
+div label {
+    justify-content: flex-start;
+}
+
+#campo label {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+ul.menu, ul.sub-menu {
+    padding-left: 0
+}
+
+ul.menu li {
+    list-style: none;
+    padding: 5px;
+}
+
+ul.menu>li:hover ul.sub-menu {
+    display: block;
+    min-width: 200px;
+}
+
+ul.sub-menu {
+    display: none;
+}
+
+.beer {
+    width: 200px;
+}
+
+.cerveza div p {
+    text-align: left;
+}
+
+.cerveza #beerHistory p {
+    text-align: center;
+}
+
+.cuerpo #imgIntro {
+    border: none;
+}
+
+.city li {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.encabezado div {
+    height: 20%;
+    width: 100%;
+    margin-left: -30%;
+}
+
+.lista {
+    clear: both;
+    color: white;
+    text-align: justify;
+}
+
+.lista p {
+    text-align: left;
+}
+
+.lista img {
+    width: 200px;
+    float: fixed;
+}
+
+ol {
+    text-shadow: 0 5px 0 black;
+    font-size: 0, 8em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.footer, #footer footer p {
+    text-align: right;
+    float: inline-end;
+    width: 100%;
+}
+
+.fas {
+    color: yellow transparent;
+}
+
+.galeria {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: space-around;
+}
