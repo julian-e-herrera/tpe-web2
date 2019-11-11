@@ -1,5 +1,7 @@
 {include 'templates/header.tpl'}
 <section>
+{include file="loginsolo.tpl"}
+
 <table id="tabla-cerveza">
             <thead>
                 <tr>
@@ -8,6 +10,8 @@
                     <th>Ibu</th>
                     <th>Amargor</th>
                     <th>O.G.</th>
+                    <th>Familia</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +21,9 @@
                      <td>{$cerveza->ibu}</td>
                      <td>{$cerveza->amargor}</td>
                      <td>{$cerveza->original_gravity}</td>
+                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/familia/{$cerveza->id_familia}">{$cerveza->id_familia}</a></small></td>
+                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/">Volver</a></small></td>
+
                     </tr>
             </tbody>
 </table> 

@@ -1,7 +1,10 @@
 <?php
-include_once('./views/login.view.php');
-include_once('./models/UserModel.php');
-include_once('./helpers/auth.helper.php');
+require_once('./views/login.view.php');
+require_once('./models/UserModel.php');
+require_once('./helpers/auth.helper.php');
+
+
+
 
 class LoginController {
 
@@ -20,8 +23,8 @@ class LoginController {
     }
 
     public function verifyUser() {
-        $username = $_POST['nombre'];
-        $password = $_POST['password'];
+        $username = $_POST['user'];
+        $password = $_POST['pass'];
 
         $user = $this->model->getByUsername($username);
 
@@ -37,6 +40,7 @@ class LoginController {
 
     public function logout() {
         $this->authHelper->logout();
-        header('Location: ' . LOGIN);
+        header('Location: '. logout);
+        die;
     }
 }

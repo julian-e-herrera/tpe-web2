@@ -9,8 +9,7 @@
                         <th>O.G.</th>
                         <th>Familia</th>
                         <th>VER</th>
-                        <th>ACTUALIZAR</th>
-                        <th>BORRAR</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -22,19 +21,15 @@
                      <td>{$cerveza->ibu}</td>
                      <td>{$cerveza->amargor}</td>
                      <td>{$cerveza->original_gravity}</td>
-                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/familia/{$cerveza->id_cerveza}">{$cerveza->id_familia}</a></small></td>
+                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/familia/{$cerveza->id_familia}">{$cerveza->id_familia}</a></small></td>
                      <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/cerveza/{$cerveza->id_cerveza}">VER</a></small></td>
-                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/actualizar/cerveza/{$cerveza->id_cerveza}">ACTUALIZAR</a></small></td>
-                    <form action="borrar/{$cerveza->id_cerveza}" method="DELETE">
-                     <td><small><input type="submit" value="BORRAR" name="{$cerveza->id_cerveza}"></small></td>
-                    </form>
+    
                     </tr>
+            
                  {/foreach}
                 </tbody>
             </table>    
  </section>
-            {include 'templates/agregarCerveza.tpl'}
-            
             {include 'templates/filtro_familia.tpl'}
  <section>
   <h1>HISTORIA</h1>

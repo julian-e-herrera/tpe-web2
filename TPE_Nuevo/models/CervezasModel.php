@@ -39,16 +39,22 @@ class CervezaModel{
         
         return $cerveza;
     }
+    public function getNombre($id){
+        $query = $this->db->prepare("SELECT nombre FROM famila INNER JOIN cerveza WHERE familia.id_familia = cerveza.id_familia");
+        $query->execute(array($id));/////////////////////
+        $nombre = $query->fetch(PDO::FETCH_OBJ); //REVISAR.
+        return $nombre;
+    }
 //////////////////////////////////////////////////////////
 
 public function InsertarCerveza($nombre,$grad,$ibu,$amargor,$og,$id_fam){
-    $sentencia = $this->db->prepare("INSERT INTO cerveza(nombre,graduacion_porcentaje,ibu,amargor,original_gravity,id_familia) VALUES(?,?,?,?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO cerveza (id_cerveza, nombre, graduacion_porcentaje, ibu, amargor, original_gravity, id_familia) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
     $sentencia->execute([$nombre,$grad,$ibu,$amargor,$og,$id_fam]);
     return $this->db->lastInsertId();
 }
 
-public function ActualizarCerveza($id,$nombre,$grad,$ibu,$amargor,$og,$id_fam){
-    $sentencia =  $this->db->prepare("UPDATE cerveza SET nombre=?, graduacion_porcentaje=?, ibu=?,amargor=?,original_gravity=?,id_familia=? WHERE id_cerveza=?");
+public function ActualizarCervezas($id,$nombre,$grad,$ibu,$amargor,$og,$id_fam){
+    $sentencia =  $this->db->prepare("UPDATE cerveza SET nombre=?, graduacion_porcentaje=?, ibu=?,amargor=?,original_gravity=?,id_familia=? WHERE cerveza.id_cerveza=?");
     $sentencia->execute([$nombre,$grad,$ibu,$amargor,$og,$id_fam,$id]);
 }
 

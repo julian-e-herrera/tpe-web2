@@ -13,7 +13,7 @@ class LoginView {
     public function showLogin($error = null) {
         $this->smarty->assign('titulo', 'Iniciar Sesión');
         $this->smarty->assign('error', $error);
-        $this->smarty->display('templates/login.tpl');
+        $this->smarty->display('templates/ver_cervezas_user.tpl');
     }
 
 }

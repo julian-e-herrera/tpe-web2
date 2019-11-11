@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2019 a las 19:18:48
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 11-11-2019 a las 06:22:24
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -86,6 +86,26 @@ INSERT INTO `familia` (`id_familia`, `nombre`, `caracteristicas`) VALUES
 (3, 'ALE', 'El término Ale se refiere al tipo de fermentación y no tiene que ver con su color, estilo o cuerpo. Las cervezas Ale pueden ser claras u oscuras, tener mucho cuerpo, alta o baja graduación y ser más o menos amargas.\r\nEl vocablo Ale se deriva del inglés ealu, cuyo significado es cerveza y abarca a todas las que usan levaduras de fermentación alta.\r\nEn la Edad Media, las ales eran una fuente de hidratación y nutrición y se consumían constantemente debido a la falta de agua potable.\r\nEl proceso de fermentación se lleva a cabo a una temperatura de entre 15° y 25° grados centígrados y la levadura se mantiene en la parte superior del líquido de tres a cuatro días, llegando incluso a las dos semanas, antes de que finalmente descienda al fondo.'),
 (4, 'Lager', 'El término alemán Lager significa guardar o almacenar y se les conoce así debido a que las cervezas de este tipo reposan en almacenes para su maduración antes de servirlas y beberlas.\r\nUna cerveza Lager es fermentada con una levadura a baja temperatura en la parte baja del tanque a la que luego se le deja madurar en frío. Algunas pueden hacerlo de tres a cuatro semanas, pero otras suelen dejarse hasta seis meses.\r\nLas cervezas Lager tienen menos contenido alcohólico y se sirven a una temperatura más baja, entre 5° y 9° grados centígrados.\r\nLa densidad del mosto, las mezclas de la malta, el lípulo y su proceso de elaboración determinan las características de los distintos estilos de lager');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `password`) VALUES
+(1, 'pablo', '$2y$10$LhQuydnouanermZR9bT9reLHeok7j2qFTwQlYmWL.j482k4saC/C2'),
+(2, 'julian', '$2y$10$oBSsTItMFxs7GWB0AVmZeutYM4hDNGhmKzOMdKco0qtwiiiganUZ2');
+
 --
 -- Índices para tablas volcadas
 --
@@ -104,6 +124,12 @@ ALTER TABLE `familia`
   ADD PRIMARY KEY (`id_familia`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -118,6 +144,12 @@ ALTER TABLE `cerveza`
 --
 ALTER TABLE `familia`
   MODIFY `id_familia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

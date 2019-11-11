@@ -1,40 +1,37 @@
+{include file="loginsolo.tpl"}
+
 <section>
-         <table id="tabla-cerveza">
+         <table id="tabla-familia">
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Graduación %alc</th>
-                        <th>Ibu</th>
-                        <th>Amargor</th>
-                        <th>O.G.</th>
+                        <th>caracteristicas</th>
                         <th>Familia</th>
+                        <th>Ejemplos</th>
                         <th>VER</th>
-                        <th>ACTUALIZAR</th>
-                        <th>BORRAR</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                 {foreach from=$cervezas item=cerveza}
+                 {foreach from=$familias item=familia}
             
                     <tr>
-                     <td>{$cerveza->nombre}</td>
-                     <td>{$cerveza->graduacion_porcentaje}</td>
-                     <td>{$cerveza->ibu}</td>
-                     <td>{$cerveza->amargor}</td>
-                     <td>{$cerveza->original_gravity}</td>
-                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/familia/{$cerveza->id_cerveza}">{$cerveza->id_familia}</a></small></td>
-                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/cerveza/{$cerveza->id_cerveza}">VER</a></small></td>
-                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/actualizar/cerveza/{$cerveza->id_cerveza}">ACTUALIZAR</a></small></td>
-                    <form action="borrar/{$cerveza->id_cerveza}" method="DELETE">
-                     <td><small><input type="submit" value="BORRAR" name="{$cerveza->id_cerveza}"></small></td>
-                    </form>
+                     <td>{$familia->nombre}</td>
+                     <td>{$familia->caracteristicas}</td>
+                     <td>{$familia->id_familia}</td>
+                      <td> 
+                         {foreach from=$cervezas item=cerveza}
+                         {if {$cerveza->id_familia} eq {$familia->id_familia}}
+                         <ol>{$cerveza->nombre}</ol>
+                         {/if} 
+                          {/foreach}
+                     </td>  
+                    <td><a href="/tpe/tpe-web2/TPE_Nuevo/familia/{$familia->id_familia}">VER</a></td>
                     </tr>
                  {/foreach}
                 </tbody>
             </table>    
  </section>
-            {include 'templates/agregarCerveza.tpl'}
-            
             {include 'templates/filtro_familia.tpl'}
  <section>
   <h1>HISTORIA</h1>
