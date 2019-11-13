@@ -26,7 +26,7 @@ class CervezaView{
     public function DisplayCervezasUser($cervezas){
         $this->smarty->assign('titulo', 'cervezas');
         $this->smarty->assign('cervezas',$cervezas);
-            $this->smarty->display('templates/ver_cervezas_user.tpl');
+        $this->smarty->display('templates/ver_cervezas_user.tpl');
  
         
      }
@@ -42,6 +42,13 @@ class CervezaView{
         $this->smarty->assign('cerveza', $cerveza);
         $this->smarty->display('templates/cervezaDetail.tpl');
     }
+
+    public function DisplayActualizarCerveza($cerveza) {
+        $this->smarty->assign('titulo', 'cerveza');
+        $this->smarty->assign('cerveza', $cerveza);
+        $this->smarty->display('templates/actualizarCerveza.tpl');
+    }
+
     public function showError($msgError) {
         echo "<h1>ERROR!</h1>";
         echo "<h2>{$msgError}</h2>";

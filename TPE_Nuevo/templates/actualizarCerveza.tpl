@@ -1,23 +1,23 @@
 {include file="header.tpl"}
 {include file="loginsolo.tpl"}
-{include file="tabla_cerveza.tpl"}        
 
-<form action="actualizar/{$cerveza->id_cerveza}" method="UPDATE">
+
+<form action="/tpe/tpe-web2/TPE_Nuevo/" method="POST">
     <label for="input-id_cerveza">id</label>
-    <input type="text" name="id_cerveza" placeholder="" id="id_cerveza">
+    <input type="text" name="id_cerveza" value="{$cerveza->id_cerveza}" id="id_cerveza" disabled>
     <label for="input-nombre">Nombre</label>
-    <input type="text" name="nombre" placeholder="" id="input-nombre">
+    <input type="text" name="nombre" value="{$cerveza->nombre}" id="input-nombre">
     <label for="input-porcentaje">%</label>
-    <input type="text" name="graduacion_porcentaje" placeholder="" id="input-porcentaje">
+    <input type="text" name="graduacion_porcentaje" value="{$cerveza->graduacion_porcentaje}" id="input-porcentaje">
     <label for="input-ibu">IBU</label>
-    <input type="text" name="ibu" placeholder="" id="input-ibu">
+    <input type="text" name="ibu" value="{$cerveza->ibu}" id="input-ibu">
     <label for="input-amargor">Amargor</label>
-    <input type="text" name="amargor" placeholder="" id="input-amargor">
+    <input type="text" name="amargor" value="{$cerveza->amargor}" id="input-amargor">
     <label for="input-og">O.G.</label>
-    <input type="text" name="original_gravity" placeholder="" id="input-og">
+    <input type="text" name="original_gravity" value="{$cerveza->original_gravity}" id="input-og">
      <label for="input-familia">Familia</label>
-    <input type="text" name="id_familia" placeholder="" id="input-familia">
-     <input type="submit" value="actualizar">
+    <input type="text" name="id_familia" value="{$cerveza->id_familia}" id="input-familia">
+     <input type="submit" value="Actualizar">
 </form>
 
 {include file="footer.tpl"}

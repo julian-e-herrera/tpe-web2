@@ -53,8 +53,8 @@ public function InsertarCerveza($nombre,$grad,$ibu,$amargor,$og,$id_fam){
     return $this->db->lastInsertId();
 }
 
-public function ActualizarCervezas($id,$nombre,$grad,$ibu,$amargor,$og,$id_fam){
-    $sentencia =  $this->db->prepare("UPDATE cerveza SET nombre=?, graduacion_porcentaje=?, ibu=?,amargor=?,original_gravity=?,id_familia=? WHERE cerveza.id_cerveza=?");
+public function ActualizarCerveza($id,$nombre,$grad,$ibu,$amargor,$og,$id_fam){
+    $sentencia =  $this->db->prepare("UPDATE cerveza SET nombre=?, graduacion_porcentaje=?, ibu=?,amargor=?,original_gravity=?,id_familia=? WHERE id_cerveza=?");
     $sentencia->execute([$nombre,$grad,$ibu,$amargor,$og,$id_fam,$id]);
 }
 

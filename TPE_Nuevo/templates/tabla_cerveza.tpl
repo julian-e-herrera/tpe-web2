@@ -24,7 +24,10 @@
                      <td>{$cerveza->original_gravity}</td>
                      <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/familia/{$cerveza->id_cerveza}">{$cerveza->id_familia}</a></small></td>
                      <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/cerveza/{$cerveza->id_cerveza}">VER</a></small></td>
-                     <td><small><a href="/tpe/tpe-web2/TPE_Nuevo/actualizar/cerveza/{$cerveza->id_cerveza}">ACTUALIZAR</a></small></td>
+
+                     <form action="actualizar/{$cerveza->id_cerveza}" method="post">
+                     <td><small><input type="submit" value="ACTUALIZAR" name="{$cerveza->id_cerveza}"></small></td>
+                    </form>
                     <form action="borrar/{$cerveza->id_cerveza}" method="DELETE">
                      <td><small><input type="submit" value="BORRAR" name="{$cerveza->id_cerveza}"></small></td>
                     </form>

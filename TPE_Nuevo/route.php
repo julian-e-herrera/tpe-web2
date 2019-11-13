@@ -19,13 +19,13 @@
     $r->addRoute("ver", "GET", "CervezasController", "showCervezas");
     $r->addRoute("cerveza/:ID", "GET", "CervezasController", "showCerveza");
     $r->addRoute("insertar", "POST", "CervezasController", "insertarCerveza");
-    $r->addRoute("actualizar/cerveza:ID", "UPDATE", "CervezaController", "ActualizarCerveza");
+    $r->addRoute("actualizar/:ID", "POST", "CervezasController", "ActualizarCerveza");
     $r->addRoute("borrar/:ID", "GET", "CervezasController", "borrarCerveza");
      //rutas familias
      $r->addRoute("familias", "GET", "FamiliaController", "showFamilias");
     $r->addRoute("familia/:ID", "GET", "FamiliaController", "showFamilia");
     $r->addRoute("insertar/familia", "POST", "FamiliaController", "insertarFamilia");
-    $r->addRoute("actualizar/familia:ID", "UPDATE", "FamiliaController", "ActualizarFamilia");
+    $r->addRoute("actualizar/familia:ID", "POST", "FamiliaController", "ActualizarFamilia");
     $r->addRoute("borrar/familia/:ID", "GET", "FamiliaController", "borrarFamilia");
     //Ruta por defecto.
     $r->setDefaultRoute("CervezasController", "showCervezasDefault");

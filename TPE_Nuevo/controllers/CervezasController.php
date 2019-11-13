@@ -60,11 +60,13 @@ class CervezasController{
         $this->cervezasModel->InsertarCerveza($_POST['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity'],$_POST['id_familia']);
         header("Location: " . ver);
     }
-    public function ActualizarCervezas($params = null){
+    public function ActualizarCerveza($params = null){
         $idCerveza = $params[':ID'];
         $cerveza = $this->cervezasModel->get($idCerveza);
-        $this->cervezasModel->ActualizarCervezas($_POST[$idCerveza],$_POST[$cerveza->nombre],$_POST[$cerveza->graduacion_porcentaje],$_POST[$cerveza->ibu],$_POST[$cerveza->amargor],$_POST[$cerveza->original_gravity],$_POST[$cerveza->id_familia]);
-        header("Location: " . actualizar);
+        //$this->cervezasModel->ActualizarCerveza($_GET[$idCerveza],$_GET['nombre'],$_POST['graduacion_porcentaje'],$_POST['ibu'],$_POST['amargor'],$_POST['original_gravity'],$_POST['id_familia']);
+        $this->cervezasModel->ActualizarCerveza($cerveza->id_cerveza,$cerveza->nombre,$cerveza->graduacion_porcentaje,$cerveza->ibu,$cerveza->amargor,$cerveza->original_gravity,$cerveza->id_familia);
+        $this->cervezasView->DisplayActualizarCerveza($cerveza);
+        //header("Location: " . ver);
     }
     public function BorrarCerveza($params = null){
         $idCerveza = $params[':ID'];
